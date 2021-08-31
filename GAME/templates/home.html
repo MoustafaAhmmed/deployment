@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+	background-color: #00237d;
+}
+
+h1   {text-align: center;
+    padding: 40px;
+	background-color: #5071BE;
+	color:white;
+	font-size: 42px
+}
+h2{
+    text-align: center;
+    padding: 20px;
+    color:white;
+    border-left: .5px solid white;
+
+}
+
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #fbafe3;
+	background:linear-gradient(to bottom, #ff5bb0 5%, #ef027d 100%);
+	background-color:#ff5bb0;
+	border-radius:6px;
+	border:1px solid #ee1eb5;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #c70067;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #ef027d 5%, #ff5bb0 100%);
+	background-color:#ef027d;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+
+.register
+{
+        background-color:  #00237d;
+        width: 700px;
+
+        margin: 0px 0px 0px 0px;
+        color: white;
+        font-size: 10px;
+        padding: 50px;
+        border-radius: 50px;
+
+
+}
+#register{
+    margin-left: 50px;
+    }
+label{
+    color: white;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-style: normal;
+}
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+
+  padding-top:120px;
+
+}
+
+
+
+.right {
+  right: 0;
+
+
+}
+
+
+</style>
+
+  <title>Games Score Prediction</title>
+
+
+    </head>
+  <body>
+      <h1  >Game Score Prediction</h1>
+      <div class = "register">
+      <form id="register"    action="{{ url_for('main') }}"  method="post"  >
+          <label> BallPark_ID: </label><br>
+          <select name="i" style="font-size:10pt; background-color:white">
+                        <option value="none">--- Select a Ball park Id ---</option>
+                        <option value="NYC20">NYC20</option>
+                        <option value="STP01">STP01</option>
+                        <option value="MIL06">MIL06</option>
+                        <option value="CHI11">CHI11</option>
+                        <option value="LOS03">LOS03</option>
+                        <option value="STL10">STL10</option>
+                        <option value="SFO03">SFO03</option>
+                        <option value="NYC21">NYC21</option>
+                        <option value="SEA03">SEA03</option>
+                        <option value="PHO01">PHO01</option>
+                        <option value="TOR02">TOR02</option>
+                        <option value="DEN02">DEN02</option>
+                        <option value="ARL02">ARL02</option>
+                        <option value="WAS11">WAS11</option>
+                        <option value="CHI12">CHI12</option>
+                        <option value="DET05">DET05</option>
+
+
+                    </select><br><br>
+
+          <label> H_off_avg: </label><br>
+          <input class="form-input" type="text" name="a" placeholder="Eg:0.15"><br><br>
+          <label> H_off_ops: </label><br>
+          <input class="form-input" type="text" name="b" placeholder="Eg. 0.64"><br><br>
+          <label> H_pit_whip: </label><br>
+          <input class="form-input" type="text" name="c" placeholder="Eg. 1.65"><br><br>
+          <label> H_pit_k_9: </label><br>
+          <input class="form-input" type="text" name="d" placeholder="Eg. 11"><br><br>
+          <label> V-off_avg: </label><br>
+          <input class="form-input" type="text" name="e" placeholder="Eg. 0.23"><br><br>
+          <label> V_off_ops: </label><br>
+          <input class="form-input" type="text" name="f" placeholder="Eg. 0.83"><br><br>
+           <label> V_pit_whip: </label><br>
+          <input class="form-input" type="text" name="g" placeholder="Eg. 1.83"><br><br>
+           <label> V_pit_k_9: </label><br>
+          <input class="form-input" type="text" name="h" placeholder="Eg. 17.83"><br><br>
+          <input type="submit" class="myButton" value="Predict Score">
+                </form>
+          <!-- Show predicted output using ML model -->
+      </div>
+
+   <div class= 'split right' >
+   <br><br>
+   <center><h2 >Prediction<br><br>______________________________<br><br> <br><br>
+   Predicted Score: <br><br> <br><br> {{ prediction_text }}</h2><center>
+
+   </div>
+
+      </body>
+</html>
